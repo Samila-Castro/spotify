@@ -1,0 +1,79 @@
+.wrapper {
+  min-height: 100vh;
+  background: #121214;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+main {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content {
+  height: 18rem;
+  overflow-y: auto;
+}
+
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 238);
+  border-radius: 2px;
+  border: none;
+}
+
+.resultBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newPlaylistBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newPlaylist {
+  height: 18rem;
+  overflow-y: auto;
+}
+.headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.newPlaylist::-webkit-scrollbar {
+  width: 4px;
+}
+
+.newPlaylist::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.newPlaylist::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 238);
+  border-radius: 2px;
+  border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}

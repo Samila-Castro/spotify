@@ -1,0 +1,21 @@
+.wrapper-form {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: url(/src/assets/background.svg) no-repeat top center/cover;
+}
+
+.label {
+  color: #fff;
+}
+
+.helperText {
+  color: #757171;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+}

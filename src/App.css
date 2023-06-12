@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.label {
+  color: #fff;
+}
+
+.helperText {
+  color: #e9dfdf;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+}
