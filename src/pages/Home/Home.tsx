@@ -1,4 +1,4 @@
-import { Button, IconButton, Input, InputGroup } from "rsuite";
+import { Button, IconButton, Input, InputGroup, Message } from "rsuite";
 import { Header } from "../../components/Header/Header";
 import { Card } from "../../components/Card/Card";
 
@@ -41,6 +41,7 @@ const Home = () => {
   const [playlistName, setPlaylistName] =
     React.useState<string>("New Playlist");
   const [theme, setTheme] = useState<string>("theme-white");
+  const [showInfo, setShowInfo] = React.useState(false);
 
   React.useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -95,7 +96,6 @@ const Home = () => {
 
     const getUserData = async () => {
       const result = await getProfile();
-      console.log(result);
       setUser(result);
     };
 
@@ -103,7 +103,6 @@ const Home = () => {
   }, []);
 
   const onSearchButtonClick = async () => {
-    //console.log({ term, accessToken });
     if (term === "" || accessToken === "") return;
 
     const requestParams = {
@@ -116,13 +115,12 @@ const Home = () => {
       `https://api.spotify.com/v1/search?type=track&q=${term}`,
       requestParams
     ).then((result) => result.json());
-    console.log({ result });
     setTracks(result.tracks.items);
   };
 
   const onLoginButtonClick = () => {
     const clientId = import.meta.env.VITE_CLIENT_ID || "";
-    console.log(clientId);
+
     const redirectUri = "http://localhost:3000/home";
 
     let codeVerifier = generateRandomString(128);
@@ -182,6 +180,7 @@ const Home = () => {
     addIttemsToPlaylist(response.id);
     setPlaylistName("Playlist name");
     setInputPlaylistName("Playlist name");
+    setShowInfo(true);
   }
 
   const handleAddOnNewPlaylist = (value: Track) => {
@@ -224,8 +223,11 @@ const Home = () => {
 
   const handleSavePlaylistName = () => {
     setPlaylistName(inputPlaylistName);
-    console.log({ inputPlaylistName });
     setEditNewPlaylistName(false);
+  };
+
+  const closeInfo = () => {
+    setShowInfo(false);
   };
 
   return (
@@ -247,6 +249,13 @@ const Home = () => {
           </InputGroup.Button>
         </InputGroup>
       </div>
+      {showInfo && (
+        <div className={style.infoWrapper}>
+          <Message showIcon type="success" closable onClick={closeInfo}>
+            Playlist criada com sucesso
+          </Message>
+        </div>
+      )}
       <main>
         <div className={style.resultBox}>
           <h3>Result</h3>
