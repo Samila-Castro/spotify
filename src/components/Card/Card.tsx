@@ -2,6 +2,7 @@ import { IconButton } from "rsuite";
 import style from "./Card.module.css";
 import PlusIcon from "@rsuite/icons/Plus";
 import TrashIcon from "@rsuite/icons/Trash";
+import PlayOutlineIcon from "@rsuite/icons/PlayOutline";
 
 interface CardPrrops {
   music: string;
@@ -20,27 +21,28 @@ export const Card = ({
   onClick,
 }: CardPrrops) => {
   return (
-    <div className={style.main}>
-      <div className={style.loader}>
-        <div className={style.buttonWrapper}>
-          {" "}
-          <IconButton
-            icon={isDelete ? <TrashIcon /> : <PlusIcon />}
-            appearance="primary"
-            color={isDelete ? `red` : `green`}
-            circle
-            onClick={onClick}
-          />
-        </div>
-        <div className={style.song}>
+    <div className={style.loader}>
+      <div>
+        <PlayOutlineIcon />
+      </div>
+      <div className={style.song}>
+        <img src={image} alt="visual album" className={style.albumcover} />
+        <div className={style.contentSongWrapper}>
           <p className={style.name}>{music}</p>
           <p className={style.artist}>
             {artist} | {album}
           </p>
         </div>
-        <img src={image} alt="visual album" className={style.albumcover} />
-
-        <div className={style.play}></div>
+      </div>
+      <div>
+        {" "}
+        <IconButton
+          icon={isDelete ? <TrashIcon /> : <PlusIcon />}
+          appearance="primary"
+          color={isDelete ? `red` : `green`}
+          circle
+          onClick={onClick}
+        />
       </div>
     </div>
   );
