@@ -5,6 +5,10 @@ import { BiLogIn } from "react-icons/bi";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import React from "react";
 
+const labels = {
+  logOut: "Logout",
+};
+
 interface HeaderProps {
   toggletheme: (value: boolean) => void;
   login: () => void;
@@ -38,7 +42,7 @@ export const Header = ({ toggletheme, login, user }: HeaderProps) => {
           startIcon={<BiLogIn />}
           onClick={login}
         >
-          Login
+          {user ? labels.logOut : "Login"}
         </Button>
       </div>
     </header>
