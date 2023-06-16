@@ -1,12 +1,12 @@
 import { Button, IconButton, Input, InputGroup, Message } from "rsuite";
 import { Header } from "../../components/Header/Header";
 import { Card } from "../../components/Card/Card";
+import React, { useState } from "react";
 
 import style from "./Home.module.css";
 import SearchIcon from "@rsuite/icons/Search";
 import EditIcon from "@rsuite/icons/Edit";
 import CheckIcon from "@rsuite/icons/Check";
-import React, { useState } from "react";
 import {
   generateCodeChallenge,
   generateRandomString,
@@ -143,12 +143,6 @@ const Home = () => {
 
       window.location.href = "https://accounts.spotify.com/authorize?" + args;
     });
-  };
-
-  const onLogOutButtonClick = () => {
-    setUser(undefined);
-    setAccessToken("");
-    localStorage.clear();
   };
 
   const handleTheme = (value: boolean) => {
