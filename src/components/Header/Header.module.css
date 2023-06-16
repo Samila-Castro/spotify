@@ -36,8 +36,12 @@ header h3 {
 @media only screen and (max-width: 768px) {
   header {
     padding: 1rem;
+    justify-content: center;
   }
   .wrapperLogo h3 {
+    display: none;
+  }
+  .wrapperLogo img {
     display: none;
   }
 }
