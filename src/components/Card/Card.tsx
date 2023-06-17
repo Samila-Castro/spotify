@@ -28,7 +28,9 @@ export const Card = ({
       <div className={style.song}>
         <img src={image} alt="visual album" className={style.albumcover} />
         <div className={style.contentSongWrapper}>
-          <p className={style.name}>{music}</p>
+          <p className={style.name}>
+            {music.length > 15 ? music.slice(0, 15) + "..." : music}
+          </p>
           <p className={style.artist}>
             {artist} | {album}
           </p>
